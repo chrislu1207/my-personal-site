@@ -4,7 +4,7 @@ import Image from 'next/image';
 export default function Home() {
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center p-8 pb-20 gap-16 sm:p-20 min-h-screen font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
+      <main className="flex flex-col gap-[32px] row-start-2 items-start md:items-start sm:w-xl">
         <Image
           className="rounded-full border-white border-2"
           src="/me.jpeg"
@@ -14,7 +14,7 @@ export default function Home() {
           priority
         />
         <span className="text-2xl font-bold">Chris Lu</span>
-        <p className="text-lg w-xl">
+        <p className="text-lg">
           I am a software engineer with a passion for building web applications.
           This is my personal site where I share my projects and thoughts.
         </p>
