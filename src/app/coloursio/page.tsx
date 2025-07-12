@@ -1,6 +1,5 @@
 'use client';
 
-import Footer from '@/components/Footer';
 import { adjustRGBColor, getRandomRGBColor } from '@/utils/utils';
 import { useCallback, useEffect, useState } from 'react';
 
@@ -54,23 +53,30 @@ export default function Coloursio() {
   };
 
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
+    <div className="grid grid-rows-[1fr_20px] items-center justify-items-center min-h-[90vh] p-8">
+      <main className="flex flex-col gap-[32px] row-start-1 items-center sm:items-start">
         <h1 className="text-2xl font-bold">Colours.io</h1>
-        <div className="flex flex-row gap-4 items-center">
-          {Object.entries(DifficultyConfig).map(([key, config]) => (
-            <button
-              key={key}
-              className=" size-12 rounded-full p-3 border border-white hover:border-fuchsia-500 disabled:border-fuchsia-500 hover:cursor-pointer"
-              disabled={difficulty === config.size}
-              onClick={() => {
-                setWins(0);
-                setDifficulty(config.size);
-              }}
-            >
-              {config.title}
-            </button>
-          ))}
+        <span className="text-lg">
+          Guess the square that has a different colour than the rest. Try to get
+          as many correct guesses in a row as possible!
+        </span>
+        <div className="flex flex-col sm:flex-row gap-4 items-center">
+          <span className="mr-2">Select Difficulty:</span>
+          <div className="flex flex-row gap-4">
+            {Object.entries(DifficultyConfig).map(([key, config]) => (
+              <button
+                key={key}
+                className=" size-12 rounded-full p-3 border border-white hover:border-fuchsia-500 disabled:border-fuchsia-500 hover:cursor-pointer"
+                disabled={difficulty === config.size}
+                onClick={() => {
+                  setWins(0);
+                  setDifficulty(config.size);
+                }}
+              >
+                {config.title}
+              </button>
+            ))}
+          </div>
         </div>
         <div className="flex items-center justify-items-center text-center">
           <div className="mr-2">Score:</div>
@@ -92,7 +98,6 @@ export default function Coloursio() {
           ))}
         </div>
       </main>
-      <Footer />
     </div>
   );
 }
