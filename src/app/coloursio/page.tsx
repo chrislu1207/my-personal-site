@@ -53,7 +53,7 @@ export default function Coloursio() {
   };
 
   return (
-    <div className="grid grid-rows-[1fr_20px] items-center justify-items-center min-h-[90vh] p-8">
+    <div className="grid grid-rows-[1fr_20px] items-center justify-items-center p-8">
       <main className="flex flex-col gap-[32px] row-start-1 items-center sm:items-start">
         <h1 className="text-2xl font-bold">Colours.io</h1>
         <span className="text-lg">
