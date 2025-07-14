@@ -2,10 +2,10 @@ import Image from 'next/image';
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-start md:items-start sm:w-xl">
+    <div className="min-h-[calc(100vh-9rem)] sm:min-h-[calc(100vh-11rem)] flex items-center justify-center p-8 sm:p-20 pb-20 gap-16 font-[family-name:var(--font-geist-sans)]">
+      <main className="flex flex-col gap-8 items-start md:items-start sm:w-xl">
         <Image
-          className="rounded-full border-white border-2"
+          className="rounded-full border-[var(--foreground)] border-2"
           src="/me.jpeg"
           alt="Chris Lu"
           width={180}
