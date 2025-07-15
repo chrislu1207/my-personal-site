@@ -66,7 +66,7 @@ export default function Coloursio() {
             {Object.entries(DifficultyConfig).map(([key, config]) => (
               <button
                 key={key}
-                className="size-12 rounded-full p-3 border border-[var(--foreground)] hover:border-fuchsia-500 disabled:border-fuchsia-500 hover:cursor-pointer"
+                className="size-12 rounded-full p-3 border border-[var(--foreground)] hover:border-fuchsia-500 disabled:border-fuchsia-500 disabled:cursor-not-allowed hover:cursor-pointer"
                 disabled={difficulty === config.size}
                 onClick={() => {
                   setWins(0);
