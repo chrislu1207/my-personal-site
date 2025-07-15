@@ -147,9 +147,7 @@ export default function Cardify() {
                 alt="Uploaded"
               />
             ) : (
-              <span className="text-gray-500">
-                Your uploaded image goes here
-              </span>
+              <span>Your uploaded image goes here</span>
             )}
           </div>
           <button
@@ -169,13 +167,13 @@ export default function Cardify() {
                 alt="Generated Card"
               />
             ) : (
-              <span className="text-gray-500">
+              <span>
                 {loading ? 'Generating...' : 'Your generated image goes here'}
               </span>
             )}
           </div>
         </div>
-        <p className="text-sm text-gray-500">
+        <p className="text-sm">
           Note: This is an experimental feature, generated images may not always
           match expectations. Your uploaded and generated photos are in no way
           stored, saved, or kept for any other purposes.

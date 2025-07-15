@@ -18,6 +18,9 @@ export default function Home() {
           applications. Welcome to my personal website where I share some of the
           projects I am currently working on.
         </p>
+        <p className="text-sm">
+          Note: This site is best experienced in dark mode.
+        </p>
       </main>
     </div>
   );
