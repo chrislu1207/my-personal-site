@@ -12,6 +12,12 @@ export default function Nav() {
       >
         Colours.io
       </Link>
+      <Link
+        className="hover:underline hover:underline-offset-4"
+        href="/cardify"
+      >
+        Cardify
+      </Link>
     </nav>
   );
 }

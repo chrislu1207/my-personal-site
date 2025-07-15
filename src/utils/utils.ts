@@ -37,3 +37,11 @@ export const adjustRGBColor = (
   // Return the new RGB string
   return `rgb(${newR}, ${newG}, ${newB})`;
 };
+
+export const toBase64 = (file: File): Promise<string> =>
+  new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result as string);
+    reader.onerror = (error) => reject(error);
+  });
