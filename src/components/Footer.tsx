@@ -35,8 +35,9 @@ export default function Footer() {
       </a>
       <a
         className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-        target="_blank"
         rel="noopener noreferrer"
+        target="_blank"
+        href="https://drive.google.com/file/d/1bthsXkrX9NPbjD0TnVAbkJiLTtJuXEdh/preview"
       >
         <Image
           aria-hidden
