@@ -83,7 +83,7 @@ export default function Coloursio() {
           <div className="font-bold text-3xl">{wins}</div>
         </div>
         <div
-          className={`size-80 grid ${DifficultyConfig[difficulty].gridSize} gap-1 sm:size-160 sm:gap-2`}
+          className={`size-80 grid ${DifficultyConfig[difficulty].gridSize} gap-1 sm:size-120 sm:gap-2`}
         >
           {gridItems.map((item) => (
             <div

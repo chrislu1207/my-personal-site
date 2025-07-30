@@ -4,28 +4,7 @@ import Image from 'next/image';
 import { GoogleGenAI, Modality } from '@google/genai';
 import { useRef, useState } from 'react';
 import Upload from '@/components/Upload';
-
-const types = [
-  '',
-  'Normal',
-  'Fire',
-  'Water',
-  'Grass',
-  'Electric',
-  'Psychic',
-  'Ice',
-  'Dragon',
-  'Dark',
-  'Fairy',
-  'Fighting',
-  'Flying',
-  'Poison',
-  'Ground',
-  'Rock',
-  'Bug',
-  'Ghost',
-  'Steel',
-];
+import { types } from '@/utils/constants';
 
 export default function Cardify() {
   const [image, setImage] = useState<File | null>(null);
@@ -104,7 +83,19 @@ export default function Cardify() {
           and a short description to help generate the card. Finally, click the
           Generate Card button to create a card based on the uploaded image.
         </span>
-        <Upload id="dropzone-file" uploadRef={fileRef} onUpload={onUpload} />
+        {image ? (
+          <div className="flex items-center justify-center min-h-64 p-4 border rounded w-full">
+            <Image
+              className="max-w-full h-auto rounded"
+              width={300}
+              height={300}
+              src={URL.createObjectURL(image)}
+              alt="Uploaded"
+            />
+          </div>
+        ) : (
+          <Upload id="dropzone-file" uploadRef={fileRef} onUpload={onUpload} />
+        )}
         <div className="flex flex-col gap-4 sm:flex-row sm:justify-between w-full">
           <div className="flex-1">
             <label htmlFor="types" className="block mb-2 font-medium">
@@ -137,41 +128,30 @@ export default function Cardify() {
           </div>
         </div>
         <div className="flex flex-col gap-4 w-full justify-center items-center sm:flex-row sm:gap-20">
-          <div className="flex items-center min-w-80 min-h-80 justify-center p-4 border rounded">
-            {image ? (
-              <Image
-                className="max-w-full h-auto rounded"
-                width={300}
-                height={300}
-                src={URL.createObjectURL(image)}
-                alt="Uploaded"
-              />
-            ) : (
-              <span>Your uploaded image goes here</span>
-            )}
-          </div>
           <button
-            className="rounded p-4 border border-[var(--foreground)] hover:border-fuchsia-500 disabled:border-gray-500 hover:cursor-pointer disabled:cursor-not-allowed"
+            className="rounded-full sm:rounded p-4 border border-[var(--foreground)] hover:border-fuchsia-500 disabled:border-gray-500 hover:cursor-pointer disabled:cursor-not-allowed"
             onClick={onGenerate}
             disabled={!image || loading}
           >
-            Generate
+            Generate!
           </button>
-          <div className="flex items-center min-w-80 min-h-80 justify-center p-4 border rounded">
-            {card ? (
-              <Image
-                className="max-w-full h-auto rounded"
-                width={300}
-                height={300}
-                src={`data:image/jpeg;base64,${card}`}
-                alt="Generated Card"
-              />
-            ) : (
-              <span>
-                {loading ? 'Generating...' : 'Your generated image goes here'}
-              </span>
-            )}
-          </div>
+        </div>
+        <div className="flex items-center w-full min-h-64 justify-center p-4 border rounded">
+          {card ? (
+            <Image
+              className="max-w-full h-auto rounded"
+              width={300}
+              height={300}
+              src={`data:image/jpeg;base64,${card}`}
+              alt="Generated Card"
+            />
+          ) : (
+            <span>
+              {loading
+                ? 'Generating your image. This could take up to a minute...'
+                : 'Your image will be displayed here after generation.'}
+            </span>
+          )}
         </div>
         <p className="text-sm">
           Note: This is an experimental feature, generated images may not always
